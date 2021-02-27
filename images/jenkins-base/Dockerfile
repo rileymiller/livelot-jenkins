@@ -1,11 +1,10 @@
 # images/jenkins-base/Dockerfile
-FROM centos:8
+FROM centos:7
 MAINTAINER rmllr000@gmail.com
 
 LABEL dockerfile_location=https://github.com/rileymiller/livelot-jenkins/tree/master/images/jenkins-base/Dockerfile \
       image_name=livelot-jenkins/jenkins-base \
       base_image=centos:8
-
 
 # Jenkins' Environment
 ENV JENKINS_HOME /var/jenkins_home
@@ -18,8 +17,8 @@ ENV uid=1000
 ENV gid=1000
 
 # Jenkins Version info
-ENV JENKINS_VERSION 2.69
-ENV JENKINS_SHA d1ad00f4677a053388113020cf860e05a72cef6ee64f63b830479c6ac5520056
+ENV JENKINS_VERSION 2.281
+ENV JENKINS_SHA 2e5ed61344faa04000d703d9b2077b9ec4dca4eb3f72b1eb5057b52e2b8e7458
 
 # These URLs can be swapped out for internal repos if needed. Secrets required may vary :)
 ENV JENKINS_UC https://updates.jenkins.io
