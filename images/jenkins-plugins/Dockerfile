@@ -26,9 +26,13 @@ USER ${user}
 ADD files/plugins.txt /tmp/plugins-main.txt
 RUN install-plugins.sh `cat /tmp/plugins-main.txt`
 
+# Add our groovy init files
+ADD files/init.groovy.d /usr/share/jenkins/ref/init.groovy.d
+
 # Export our war and plugin set as volumes
 VOLUME /usr/share/jenkins/ref/plugins
 VOLUME /usr/share/jenkins/ref/warfile
+VOLUME /usr/share/jenkins/ref/init.groovy.d
 
 # It's easy to get confused when just a volume is being used, so let's just keep
 # the container alive for clarity. This entrypoint will keep the container
