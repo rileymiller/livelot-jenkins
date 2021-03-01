@@ -4,4 +4,4 @@ greenballs
 groovy
 job-dsl
 workflow-aggregator
-
+cloudbees-folder
