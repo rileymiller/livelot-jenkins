@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                 // The below will clone your repo and will be checked out to master branch by default.
-                git credentialsId: 'gitlab-ssh-key', url: 'git@gitlab.com:livelot/camera.git'
+                git credentialsId: 'gitlab-ssh-key', url: 'git@gitlab.com:livelot/camera.git', branch: 'main'
                 // Do a ls -lart to view all the files are cloned. It will be cloned. This is just for you to be sure about it.
                 sh "ls -lart ./*" 
                 }
