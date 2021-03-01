@@ -3,8 +3,8 @@ FROM livelot-jenkins/jenkins-base
 MAINTAINER rmllr000@gmail.com
 
 LABEL dockerfile_location=https://github.com/rileymiller/livelot-jenkins/tree/master/images/jenkins-master/Dockerfile \
-      image_name=livelot-jenkins/jenkins-master \
-      base_image=livelot-jenkins/jenkins-base
+    image_name=livelot-jenkins/jenkins-master \
+    base_image=livelot-jenkins/jenkins-base
 
 # Jenkins' Environment
 ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
@@ -33,7 +33,7 @@ RUN mkdir -p ${JENKINS_HOME}/jobs && chown ${user}:${group} ${JENKINS_HOME}/jobs
 
 # Install Docker (for docker-slaves plugin)
 RUN yum-config-manager --add-repo \
-      https://download.docker.com/linux/centos/docker-ce.repo \
+    https://download.docker.com/linux/centos/docker-ce.repo \
     && yum makecache fast \
     && yum install -y docker-ce \
     && yum clean all -y
