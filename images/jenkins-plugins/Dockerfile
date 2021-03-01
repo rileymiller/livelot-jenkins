@@ -3,8 +3,8 @@ FROM livelot-jenkins/jenkins-base
 MAINTAINER rmllr000@gmail.com
 
 LABEL dockerfile_location=https://github.com/rileymiller/livelot-jenkins/tree/master/images/jenkins-plugins/Dockerfile \
-      image_name=modernjenkins/jenkins-plugins \
-      base_image=modernjenkins/jenkins-base
+  image_name=modernjenkins/jenkins-plugins \
+  base_image=modernjenkins/jenkins-base
 
 # Add our plugin installation tool. Can be found here and is modified from the
 # upstream version.
@@ -29,10 +29,13 @@ RUN install-plugins.sh `cat /tmp/plugins-main.txt`
 # Add our groovy init files
 ADD files/init.groovy.d /usr/share/jenkins/ref/init.groovy.d
 
+RUN mkdir -p ${JENKINS_ROOT}/ref/bootstrap
+ADD files/bootstrap.groovy /usr/share/jenkins/ref/bootstrap
 # Export our war and plugin set as volumes
 VOLUME /usr/share/jenkins/ref/plugins
 VOLUME /usr/share/jenkins/ref/warfile
 VOLUME /usr/share/jenkins/ref/init.groovy.d
+VOLUME /usr/share/jenkins/ref/bootstrap
 
 # It's easy to get confused when just a volume is being used, so let's just keep
 # the container alive for clarity. This entrypoint will keep the container

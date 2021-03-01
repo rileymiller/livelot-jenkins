@@ -2,3 +2,6 @@ credentials
 github
 greenballs
 groovy
+job-dsl
+workflow-aggregator
+
