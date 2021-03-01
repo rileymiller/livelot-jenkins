@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                // The below will clone your repo and will be checked out to master branch by default.
+                git credentialsId: 'gitlab-ssh-key', url: 'git@gitlab.com:livelot/camera.git'
+                // Do a ls -lart to view all the files are cloned. It will be cloned. This is just for you to be sure about it.
+                sh "ls -lart ./*" 
+                }
+            }
+        }
+        stage('Example') {
+            steps {
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+            }
+        }
+    }
+}

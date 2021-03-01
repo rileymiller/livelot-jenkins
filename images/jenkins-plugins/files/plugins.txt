@@ -5,3 +5,4 @@ groovy
 job-dsl
 workflow-aggregator
 cloudbees-folder
+gitlab-plugin
