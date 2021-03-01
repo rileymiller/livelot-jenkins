@@ -13,8 +13,9 @@ job('bootstrap') {
     }
     steps {
         dsl {
-            external 'jobs/**/*.groovy'
+            external 'dsl/**/*.groovy'
         }
+
     }
     publishers {
     }
